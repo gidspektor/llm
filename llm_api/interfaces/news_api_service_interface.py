@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class LlmClientInterface(ABC):
+class NewsApiServiceInterface(ABC):
     @abstractmethod
-    def get_client(self):
+    async def get_articles(self) -> list:
         raise NotImplementedError("This method should be overridden by subclasses")

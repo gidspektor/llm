@@ -43,7 +43,7 @@ def get_app() -> FastAPI:
 
 def set_up_logger() -> None:
 	"""Set up logging configuration."""
-    
+
 	with open(APP_ROOT / "logging_config.yaml", "r") as file:
 		config = yaml.safe_load(file)
 		logging.config.dictConfig(config)
