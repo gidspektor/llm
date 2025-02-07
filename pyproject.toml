@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "llm_api"
+version = "0.1.0"
+description = ""
+authors = [
+
+]
+
+maintainers = [
+
+]
+
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.100.0"
+uvicorn = { version = "^0.22.0", extras = ["standard"] }
+pydantic = "^2"
+pydantic-settings = "^2"
+openai = "^1.61.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.1"
+psycopg2-binary = "2.9.10"
+pytest-asyncio="^0.18.3"
+pytest-mock="3.14.0"
+flake8 = "~7.0.0"
+black = "^24.4.2"
+autoflake = "^1.6.1"
+pyyaml = "^6.0.2"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+    "ignore:.*unclosed.*:ResourceWarning",
+]
+env = [
+    "LLM_API_ENVIRONMENT=pytest",
+    "LL_API_DB_BASE=llm_api_test",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

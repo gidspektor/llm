@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      ssh:
+      - default
+    image: llm_api:${LLM_API_VERSION:-latest}
+    ports:
+    - "80:80"
+    volumes:
+    - .:/app/src/
+    restart: always
+    env_file:
+    - .env
+    environment:
+      LLM_API_HOST: 0.0.0.0
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "2G"
