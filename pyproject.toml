@@ -19,6 +19,7 @@ uvicorn = { version = "^0.22.0", extras = ["standard"] }
 pydantic = "^2"
 pydantic-settings = "^2"
 openai = "^1.61.1"
+ujson = "^5.10.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.2.1"

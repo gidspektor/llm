@@ -10,14 +10,13 @@ class LlmService(LlmInterface):
 	def __init__(self, client: LlmClientInterface) -> None:
 		self.client = client
 
-	async def create_completion(self, prompt: str, max_tokens: Optional[int]) -> str:
-		response = self.client.Completion.create(
+	async def create_completion(self, prompt: str) -> str:
+		response = await self.client.get_client().chat.completions.create(
 			model=settings.llm_model,
-			prompt=prompt,
-			max_tokens=max_tokens,
-			n=settings.n,
-			stop=None,
-			temperature=settings.temerature
+			messages=[
+				{"role": "user", "content": prompt}
+			],
+			store=True,
 		)
 
-		return response.choices[0].text.strip()
+		return response.choices[0].message.content
