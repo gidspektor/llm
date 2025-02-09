@@ -44,7 +44,7 @@ class Settings(BaseSettings):
 	temerature: float = os.environ.get("termperature", 0.7)
 	n: int = os.environ.get("n", 1)
 	llm_model: str = os.environ.get("llm_model", "gpt-4o-mini")
-	llm_api_key: str = os.environ.get("llm_api_key", "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")
+	llm_api_key: str = os.environ.get("llm_api_key", "")
 
 	request_max_lenth: int = os.environ.get("REQUEST_MAX_LENGTH", 1000)
 
