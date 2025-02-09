@@ -1,13 +1,16 @@
 import pytest
 from unittest.mock import AsyncMock, MagicMock
 from llm_api.api.v1.views import get_ai_articles
-from llm_api.api.v1.schemas import ArticleResponse
+from llm_api.api.v1.schemas import ArticlesResponse
 
 
 @pytest.mark.asyncio
 async def test_get_articles(mocker):
-    # Mock the NewsApiService to return mock articles
-    mock_news_client = mocker.patch("llm_api.api.v1.views.NewsApiService")
+    """
+    Test the get_ai_articles endpoint handler function.
+    """
+    # Mock the TheNewsApiService to return mock articles
+    mock_news_client = mocker.patch("llm_api.api.v1.views.TheNewsApiService")
     mock_news_instance = mock_news_client.return_value
     mock_news_instance.get_articles = AsyncMock(return_value={'data': [
         {"title": "Original Title 2", "description": "Original article content 2"}
@@ -29,7 +32,7 @@ async def test_get_articles(mocker):
     response = await get_ai_articles()
 
     # Assertions
-    assert isinstance(response, ArticleResponse)
+    assert isinstance(response, ArticlesResponse)
     assert len(response.articles) == 2
     assert response.articles[0].title == "Rewritten Title 1"
     assert response.articles[0].body == "Rewritten article content 1"

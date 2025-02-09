@@ -1,0 +1,19 @@
+.article {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.article h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #0070f3;
+}
+
+.article p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}

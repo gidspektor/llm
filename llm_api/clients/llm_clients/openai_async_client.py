@@ -2,7 +2,7 @@ from openai import AsyncOpenAI
 
 from llm_api.app.settings import settings
 
-from llm_api.interfaces.llm_client_interface import LlmClientInterface
+from llm_api.interfaces.llm_interfaces.llm_client_interface import LlmClientInterface
 
 
 class OpenAIAsyncClient(LlmClientInterface):
