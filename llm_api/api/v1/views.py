@@ -58,7 +58,8 @@ async def get_ai_articles():
 @router.post("/search", response_model=ArticleResponse)
 async def search_articles(request: TextRequest):
 	"""
-	Searched articles from the News API and returns the rewritten articles.
+	Searches articles from the News API and returns 
+	the rewritten articles based on the user query.
 	"""
 
 	# Create llm client
