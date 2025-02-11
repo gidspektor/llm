@@ -37,7 +37,7 @@ async def create_article(request: TextRequest):
 @router.post("/articles", response_model=ArticlesResponse)
 async def get_ai_articles():
 	"""
-	Fetches AI-generated articles, rewrites them, and returns the rewritten articles.
+	Fetches news articles, rewrites them, and returns the rewritten articles.
 	"""
 
 	# Create news client
