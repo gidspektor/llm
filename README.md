@@ -36,5 +36,5 @@
 
 To run API tests, execute the following command from the `llm_api` directory:
 ```bash
-poetry run pytest llm_api/tests/unit/
+poetry run pytest tests/unit/
 ```
